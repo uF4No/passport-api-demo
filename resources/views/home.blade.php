@@ -15,6 +15,8 @@
                     @endif
 
                     You are logged in!
+                    
+                    <tasks-list></tasks-list>
                 </div>
             </div>
         </div>

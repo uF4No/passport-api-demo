@@ -12,9 +12,10 @@
 */
 
 
-
+//Laravel Auth routes
 Auth::routes();
 
+//public routes
 Route::get('/', function () {
   return view('welcome');
 });
@@ -23,7 +24,5 @@ Route::get('/', function () {
 // Auth protected routes
 Route::group(['middleware' => ['web', 'auth']], function () {
   Route::get('home', 'HomeController@index')->name('home');
-  Route::get('example', function(){ 
-    return view('example'); 
-  });
+
 });
