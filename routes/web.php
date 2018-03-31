@@ -11,6 +11,19 @@
 |
 */
 
+
+
+Auth::routes();
+
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
+});
+
+
+// Auth protected routes
+Route::group(['middleware' => ['web', 'auth']], function () {
+  Route::get('home', 'HomeController@index')->name('home');
+  Route::get('example', function(){ 
+    return view('example'); 
+  });
 });
