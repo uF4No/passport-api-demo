@@ -5,7 +5,7 @@
     <label for="description">Description: </label>
     <textarea class="form-control" type="text" id="description" placeholder="Task description" v-model="newtask.description" ></textarea>
 
-    <button class="btn btn-primary" @click="postTask()">Save Task</button>
+    <button class="btn btn-primary mt-2 mb-2" @click="postTask()">Save Task</button>
     
     <h2>Your Tasks</h2>
     <task-item v-for="t in tasks" v-bind:t="t" v-bind:key="t.id" v-on:request-complete="completeTask"></task-item>
@@ -56,11 +56,10 @@
       completeTask(tid) {
         axios.post('/api/tasks/' + tid + '/complete' )
             .then(console.log('Task completed!'))
-            //.then( this.getTasks())
+            .then( this.getTasks())
             .catch(error => {});
       },
 
     }
   }
 </script>
-
